@@ -5,6 +5,7 @@ AlphaOne API Sample project on how to authenticate, communicate and retrieve dat
  - Console App
  - Java 11 / Java 13
  - Apache Maven 3.6.3
+ - Gradle 6.5
  - IntelliJ IDEA Community Edition 2020.1
  
 
