@@ -41,14 +41,29 @@ public class Main {
 
         System.out.println("\n");
 
-        String urlx = "https://tauranga-api.abcs.co.nz/v1/reference/inspections";
+        String urlx = "https://whakataneuat-api.abcs.co.nz/v1/authenticate";
+        Properties post_data = new Properties();
+        post_data.setProperty("username", config.getConfig().getProperty("username"));
+        post_data.setProperty("key", config.getConfig().getProperty("password"));
+
+        JsonObject jsonObj;
         try {
             WebRequest wr = new WebRequest();
-            String response = wr.getRequest(
-                    urlx,
-                    (new Properties()),
-                    config.getConfig()
-            );
+            String response = wr.postRequest(urlx, post_data);
+            System.out.println(response);
+
+            JsonParser parser = new JsonParser();
+            jsonObj = (JsonObject) parser.parse(response);
+        } catch (Exception e) {
+            System.out.println("failed");
+        }
+
+        System.out.println("\n");
+
+        urlx = "https://whakataneuat-api.abcs.co.nz/v1/reference/inspections";
+        try {
+            WebRequest wr = new WebRequest();
+            String response = wr.getRequest(urlx);
             System.out.println(response);
         } catch (Exception e) {
             System.out.println("failed");

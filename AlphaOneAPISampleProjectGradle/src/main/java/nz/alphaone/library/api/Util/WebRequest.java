@@ -9,6 +9,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Properties;
 
 /**
@@ -75,9 +76,11 @@ public class WebRequest {
             String key = URLEncoder.encode(enums.nextElement(), StandardCharsets.UTF_8);
             String value = URLEncoder.encode(params.getProperty(key), StandardCharsets.UTF_8);
 
-            get_params = (get_params.equals("")) ?
-                    String.format("%s=%s", key, value) :
-                    String.format("&%s=%s", key, value);
+            get_params = get_params + (
+                (get_params.equals("")) ?
+                String.format("%s=%s", key, value) :
+                String.format("&%s=%s", key, value)
+            );
         }
         url = url + "?" + get_params;
 
@@ -110,10 +113,62 @@ public class WebRequest {
         return response.body();
     }
 
-    public String postRequest(String url, Properties params, Properties headers) {
+    /**
+     * post data
+     * @param url String
+     * @param params Properties
+     * @return String
+     */
+    public String postRequest(String url, Properties params) {
+        try {
+            return postRequest(url, params, (new Properties()));
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
 
+    /**
+     * post data with custom headers
+     * @param url String
+     * @param params Properties
+     * @param headers Properties
+     * @return String
+     */
+    public String postRequest(String url, Properties params, Properties headers)
+    {
+        String post_data = "";
+        @SuppressWarnings("unchecked")
+        Enumeration<String> enums = (Enumeration<String>) params.propertyNames();
+        while (enums.hasMoreElements())
+        {
+            String key = URLEncoder.encode(enums.nextElement(), StandardCharsets.UTF_8);
+            String value = URLEncoder.encode(params.getProperty(key), StandardCharsets.UTF_8);
 
-        return "";
+            post_data = post_data + (
+                (post_data.equals("")) ?
+                String.format("%s=%s", key, value) :
+                String.format("&%s=%s", key, value)
+            );
+        }
+
+        try {
+            HttpResponse<String> response = null;
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .setHeader("Content-Type", "application/x-www-form-urlencoded")
+                    .POST(HttpRequest.BodyPublishers.ofString(post_data))
+                    .build();
+
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return response.body();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }
