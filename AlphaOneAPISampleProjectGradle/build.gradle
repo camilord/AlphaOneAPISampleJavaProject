@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'project-report'
+}
+
+group 'nz.camilord.alphaone.sample'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'postgresql:postgresql:9.0-801.jdbc4'
+    compile 'com.google.code.gson:gson:2.8.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.2'
+    //classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-M3")
+}
+
+test {
+    useJUnitPlatform()
+//    filter {
+//        includeTestsMatching "*Test"
+//        includeTestsMatching "nz.camilord.alphaone.sample.*"
+//        includeTestsMatching "nz.alphaone.library.api.*"
+//    }
+}
+
+configurations {
+    externalLibraries
+    compile.extendsFrom (externalLibraries)
+}
