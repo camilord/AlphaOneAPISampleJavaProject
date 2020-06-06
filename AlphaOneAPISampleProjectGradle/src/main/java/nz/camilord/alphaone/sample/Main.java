@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import nz.alphaone.library.api.Common.AppConfig;
+import nz.alphaone.library.api.Util.WebRequest;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * AlphaOneAPISampleProject
@@ -35,6 +38,21 @@ public class Main {
         System.out.println("  - " + config.getConfig().get("api_base_url"));
         System.out.println("  - " + config.getConfig().get("username"));
         System.out.println("  - " + config.getConfig().get("password"));
+
+        System.out.println("\n");
+
+        String urlx = "https://tauranga-api.abcs.co.nz/v1/reference/inspections";
+        try {
+            WebRequest wr = new WebRequest();
+            String response = wr.getRequest(
+                    urlx,
+                    (new Properties()),
+                    config.getConfig()
+            );
+            System.out.println(response);
+        } catch (Exception e) {
+            System.out.println("failed");
+        }
 
         System.out.println("\n");
 
