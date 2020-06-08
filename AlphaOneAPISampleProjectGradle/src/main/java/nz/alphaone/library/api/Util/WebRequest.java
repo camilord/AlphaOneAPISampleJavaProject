@@ -153,17 +153,36 @@ public class WebRequest {
         }
 
         try {
-            HttpResponse<String> response = null;
+
+            HttpResponse<String> response;
             HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .setHeader("Content-Type", "application/x-www-form-urlencoded")
-                    .POST(HttpRequest.BodyPublishers.ofString(post_data))
-                    .build();
+            HttpRequest request;
+
+            if (headers.isEmpty()) {
+                request = HttpRequest.newBuilder()
+                        .uri(URI.create(url))
+                        .setHeader("Content-Type", "application/x-www-form-urlencoded")
+                        .POST(HttpRequest.BodyPublishers.ofString(post_data))
+                        .build();
+            } else {
+                request = HttpRequest.newBuilder()
+                        .uri(URI.create(url))
+                        .setHeader("Content-Type", "application/x-www-form-urlencoded")
+                        .setHeader("Auth-username", (
+                                (headers.containsKey("username")) ?
+                                        headers.getProperty("username") : ""
+                        ))
+                        .setHeader("Auth-session-key", (
+                                (headers.containsKey("session_key")) ?
+                                        headers.getProperty("session_key") : ""
+                        ))
+                        .POST(HttpRequest.BodyPublishers.ofString(post_data))
+                        .build();
+            }
 
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
             return response.body();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

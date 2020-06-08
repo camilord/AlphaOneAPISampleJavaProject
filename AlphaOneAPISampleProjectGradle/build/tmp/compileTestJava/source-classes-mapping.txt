@@ -1,2 +1,4 @@
+nz/alphaone/library/api/Authentication/AuthenticationServiceTest.java
+ nz.alphaone.library.api.Authentication.AuthenticationServiceTest
 nz/alphaone/library/api/Common/AppConfigTest.java
  nz.alphaone.library.api.Common.AppConfigTest

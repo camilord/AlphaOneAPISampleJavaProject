@@ -60,6 +60,27 @@ public class AppConfig
         return properties;
     }
 
+    /**
+     * @return String
+     */
+    public String getApiBaseUrl() {
+        return properties.getProperty("api_base_url");
+    }
+
+    /**
+     * @return String
+     */
+    public String getUsername() {
+        return properties.getProperty("username");
+    }
+
+    /**
+     * @return String
+     */
+    public String getPassword() {
+        return properties.getProperty("password");
+    }
+
     private static boolean isMatch(String line, String regex) {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(line);
