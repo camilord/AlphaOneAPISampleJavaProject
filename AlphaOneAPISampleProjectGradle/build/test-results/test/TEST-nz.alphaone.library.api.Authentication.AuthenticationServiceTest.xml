@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nz.alphaone.library.api.Authentication.AuthenticationServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-09T04:26:21" hostname="CAMILO-PC" time="0.826">
+  <properties/>
+  <testcase name="authenticate()" classname="nz.alphaone.library.api.Authentication.AuthenticationServiceTest" time="0.826"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

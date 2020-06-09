@@ -35,6 +35,10 @@ public class ProjectEntry
         return AlphaID;
     }
 
+    public String getConsentNumber() {
+        return ConsentNumber;
+    }
+
     public String getApplicationState() {
         return ApplicationState;
     }

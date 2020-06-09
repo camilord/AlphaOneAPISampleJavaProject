@@ -8,6 +8,7 @@ import nz.alphaone.library.api.Entity.ProjectEntry;
 import nz.alphaone.library.api.Response.MarkDoneResponse;
 import nz.alphaone.library.api.Util.WebRequest;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -38,6 +39,9 @@ public class ProjectListService
         headers.setProperty("session_key", authorization.getSessionKey());
 
         String api_url = authorization.getApiBaseUrl() + "/v1/alphago/list";
+        if (offset > 0) {
+            api_url += String.format("/%d", offset);
+        }
         ArrayList<ProjectEntry> new_list = new ArrayList<>();
 
         JsonArray list = new JsonArray();
@@ -90,9 +94,9 @@ public class ProjectListService
             JsonObject jsonObj = (JsonObject) parser.parse(response);
 
             return new MarkDoneResponse(
-                    jsonObj.get("Result").getAsString(),
+                    jsonObj.get("Result").getAsBoolean(),
                     jsonObj.get("Message").getAsString(),
-                    jsonObj.get("Timestamp").getAsString(),
+                    jsonObj.get("Timestamp").getAsLong(),
                     jsonObj.get("ResponseID").getAsString()
             );
 
@@ -101,8 +105,8 @@ public class ProjectListService
         }
 
         return new MarkDoneResponse(
-                "false", "Error! Failed Request.",
-                null, ""
+                false, "Error! Failed Request.",
+                0, ""
         );
     }
 }

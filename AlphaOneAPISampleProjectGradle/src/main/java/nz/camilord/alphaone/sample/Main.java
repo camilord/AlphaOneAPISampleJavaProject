@@ -46,23 +46,28 @@ public class Main {
 
         System.out.println("\n");
 
-        /**
-         * ================ GET PROJECT LIST ========================
-         */
-        ProjectListService projectList = new ProjectListService(authorization);
-        ArrayList<ProjectEntry> list = projectList.getAlphaGoProjectList(0);
-        System.out.println(list);
+        if (authorization.isAuthorized())
+        {
+            /**
+             * ================ GET PROJECT LIST ========================
+             */
+            ProjectListService projectList = new ProjectListService(authorization);
+            ArrayList<ProjectEntry> list = projectList.getAlphaGoProjectList(0);
+            System.out.println(list);
 
-        System.out.println("\n");
+            System.out.println("\n");
 
-        /**
-         * ================ MARK PROJECT AS DONE ========================
-         */
+            /**
+             * ================ MARK PROJECT AS DONE ========================
+             */
 
-        for (ProjectEntry item : list) {
-            MarkDoneResponse response = projectList.markAlphaGoProjectAsDone(item);
-            System.out.println(response);
-            break;
+            for (ProjectEntry item : list) {
+                MarkDoneResponse response = projectList.markAlphaGoProjectAsDone(item);
+                System.out.println(response);
+                break;
+            }
+        } else {
+            System.out.println("Error! Unable to get authorization.");
         }
 
         System.out.println("\n");

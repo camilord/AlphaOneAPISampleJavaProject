@@ -1,4 +1,8 @@
 nz/alphaone/library/api/Authentication/AuthenticationServiceTest.java
  nz.alphaone.library.api.Authentication.AuthenticationServiceTest
+nz/alphaone/library/api/Util/EncryptionUtilTest.java
+ nz.alphaone.library.api.Util.EncryptionUtilTest
 nz/alphaone/library/api/Common/AppConfigTest.java
  nz.alphaone.library.api.Common.AppConfigTest
+nz/alphaone/library/api/ProjectList/ProjectListServiceTest.java
+ nz.alphaone.library.api.ProjectList.ProjectListServiceTest

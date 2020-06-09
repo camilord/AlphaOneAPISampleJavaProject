@@ -17,7 +17,9 @@ dependencies {
     compile 'postgresql:postgresql:9.0-801.jdbc4'
     compile 'com.google.code.gson:gson:2.8.0'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.2'
-    testCompile 'org.jetbrains.spek:spek-junit-platform-engine:1.0.89'
+    testCompile group: 'com.tngtech.java', name: 'junit-dataprovider', version: '1.13.1'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.6.2'
+    //testCompile 'org.jetbrains.spek:spek-junit-platform-engine:1.0.89'
     testRuntime 'org.junit.jupiter:junit-jupiter-engine'
     //testCompile 'junit:junit:4.13'
 }

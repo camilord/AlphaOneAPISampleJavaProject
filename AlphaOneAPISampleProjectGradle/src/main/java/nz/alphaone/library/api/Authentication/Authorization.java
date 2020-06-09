@@ -38,7 +38,7 @@ public class Authorization
         return ApiBaseUrl;
     }
 
-    public boolean IsAuthorized() {
+    public boolean isAuthorized() {
         return IsAuthorized;
     }
 }

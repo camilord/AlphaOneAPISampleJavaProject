@@ -17,15 +17,15 @@ import java.sql.Time;
  */
 public class MarkDoneResponse
 {
-    private static String Result;
+    private static boolean Result;
     private static String Message;
-    private static String Timestamp;
+    private static long Timestamp;
     private static String ResponseID;
 
     public MarkDoneResponse(
-        String result,
+        boolean result,
         String msg,
-        String timestamp,
+        long timestamp,
         String response_id
     ) {
         Result = result;
@@ -34,7 +34,7 @@ public class MarkDoneResponse
         ResponseID = response_id;
     }
 
-    public String getResult() {
+    public boolean getResult() {
         return Result;
     }
 
@@ -42,7 +42,7 @@ public class MarkDoneResponse
         return Message;
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return Timestamp;
     }
 
