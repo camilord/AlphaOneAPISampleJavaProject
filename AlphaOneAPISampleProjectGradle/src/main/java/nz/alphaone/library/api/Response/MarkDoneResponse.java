@@ -17,10 +17,10 @@ import java.sql.Time;
  */
 public class MarkDoneResponse
 {
-    private static boolean Result;
-    private static String Message;
-    private static long Timestamp;
-    private static String ResponseID;
+    private boolean Result;
+    private String Message;
+    private long Timestamp;
+    private String ResponseID;
 
     public MarkDoneResponse(
         boolean result,
@@ -34,20 +34,36 @@ public class MarkDoneResponse
         ResponseID = response_id;
     }
 
-    public boolean getResult() {
+    public boolean isResult() {
         return Result;
+    }
+
+    public void setResult(boolean result) {
+        Result = result;
     }
 
     public String getMessage() {
         return Message;
     }
 
+    public void setMessage(String message) {
+        Message = message;
+    }
+
     public long getTimestamp() {
         return Timestamp;
     }
 
+    public void setTimestamp(long timestamp) {
+        Timestamp = timestamp;
+    }
+
     public String getResponseID() {
         return ResponseID;
+    }
+
+    public void setResponseID(String responseID) {
+        ResponseID = responseID;
     }
 
     @Override

@@ -19,6 +19,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class EncryptionUtilTest
 {
+    /**
+     * @return Object[][]
+     */
     public static Object[][] getMD5TestSamples() {
         return new Object[][] {
             { "~!@#$%^&*()_+", "7ce385876b9d27babc2aead40a7f7c47" },
@@ -30,6 +33,10 @@ public class EncryptionUtilTest
         };
     }
 
+    /**
+     * @param text String
+     * @param expected String
+     */
     @ParameterizedTest
     @MethodSource("getMD5TestSamples")
     public void md5(String text, String expected)
@@ -42,6 +49,9 @@ public class EncryptionUtilTest
         }
     }
 
+    /**
+     * @return Object[][]
+     */
     public static Object[][] getSHA1TestSamples() {
         return new Object[][] {
                 { "~!@#$%^&*()_+", "ca552f542c193dc5f61252247f4abc62dc0f294f" },
@@ -53,6 +63,10 @@ public class EncryptionUtilTest
         };
     }
 
+    /**
+     * @param text String
+     * @param expected String
+     */
     @ParameterizedTest
     @MethodSource("getSHA1TestSamples")
     public void sha1(String text, String expected)
