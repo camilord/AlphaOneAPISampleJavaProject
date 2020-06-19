@@ -31,6 +31,8 @@ public class AppConfig
 
     private static void init_config()
     {
+        //String cwd = System.getProperty("user.dir");
+        //File file = new File(cwd + "/alphaone.api.config");
         File file = new File("alphaone.api.config");
         try (
                 BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -56,6 +58,27 @@ public class AppConfig
      */
     public Properties getConfig() {
         return properties;
+    }
+
+    /**
+     * @return String
+     */
+    public String getApiBaseUrl() {
+        return properties.getProperty("api_base_url");
+    }
+
+    /**
+     * @return String
+     */
+    public String getUsername() {
+        return properties.getProperty("username");
+    }
+
+    /**
+     * @return String
+     */
+    public String getPassword() {
+        return properties.getProperty("password");
     }
 
     private static boolean isMatch(String line, String regex) {

@@ -1,6 +1,8 @@
 package nz.alphaone.library.api.Common;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.Date;
 import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,12 +22,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AppConfigTest
 {
     @Test
-    void getConfig()
+    public void getConfig()
     {
         AppConfig config = new AppConfig();
         Properties props = config.getConfig();
         assertTrue(props.containsKey("api_base_url"));
         assertTrue(props.containsKey("username"));
         assertTrue(props.containsKey("password"));
+        System.out.println("Test Executed: " + new Date());
     }
 }

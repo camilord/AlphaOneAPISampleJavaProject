@@ -1,2 +1,16 @@
-nz\camilord\alphaone\sample\Main.class
+nz\alphaone\library\api\Entity\ProjectDocument.class
+nz\alphaone\library\api\Util\WebRequest.class
+nz\alphaone\library\api\ProjectList\ProjectListService.class
+nz\alphaone\library\api\Entity\DataConfig.class
+nz\alphaone\library\api\Response\MarkDoneResponse.class
+nz\alphaone\library\api\Entity\SubmissionStatuses.class
+nz\alphaone\library\api\Util\EncryptionUtil.class
+nz\alphaone\library\api\Entity\ConsentData.class
+nz\alphaone\library\api\Authentication\AuthenticationService.class
+nz\alphaone\library\api\Authentication\Authorization.class
 nz\alphaone\library\api\Common\AppConfig.class
+nz\alphaone\library\api\Entity\InspectionReport.class
+nz\camilord\alphaone\sample\Main.class
+nz\alphaone\library\api\Entity\ProjectEntry.class
+nz\alphaone\library\api\Entity\CompiledDocument.class
+nz\alphaone\library\api\Response\ProjectDetailsResponse.class

@@ -1,6 +1,14 @@
 package nz.camilord.alphaone.sample;
 
+import nz.alphaone.library.api.Authentication.AuthenticationService;
+import nz.alphaone.library.api.Authentication.Authorization;
 import nz.alphaone.library.api.Common.AppConfig;
+import nz.alphaone.library.api.Entity.ProjectEntry;
+import nz.alphaone.library.api.ProjectList.ProjectListService;
+import nz.alphaone.library.api.Response.MarkDoneResponse;
+import nz.alphaone.library.api.Response.ProjectDetailsResponse;
+
+import java.util.ArrayList;
 
 /**
  * AlphaOneAPISampleProject
@@ -26,5 +34,51 @@ public class Main {
         System.out.println("  - " + config.getConfig().get("password"));
 
         System.out.println("\n");
+
+        // reusable variables
+        Authorization authorization;
+
+        /*
+         * ================ AUTHENTICATION ========================
+         */
+
+        AuthenticationService auth = new AuthenticationService(config);
+        authorization = auth.authenticate();
+
+        System.out.println("\n");
+
+        if (authorization.isAuthorized())
+        {
+            /*
+             * ================ GET PROJECT LIST ========================
+             */
+            ProjectListService projectList = new ProjectListService(authorization);
+            ArrayList<ProjectEntry> list = projectList.getAlphaGoProjectList(0);
+            System.out.println(list);
+
+            System.out.println("\n");
+
+            /*
+             * ================ MARK PROJECT AS DONE ========================
+             */
+
+            for (ProjectEntry item : list)
+            {
+                // get project details
+                ProjectDetailsResponse details = projectList.getProjectDetails(item.getAlphaID());
+                System.out.println(details);
+
+                // mark as done
+                MarkDoneResponse response = projectList.markAlphaGoProjectAsDone(item);
+                System.out.println(response);
+                break;
+            }
+        } else {
+            System.out.println("Error! Unable to get authorization.");
+        }
+
+        System.out.println("\n");
+
     }
+
 }

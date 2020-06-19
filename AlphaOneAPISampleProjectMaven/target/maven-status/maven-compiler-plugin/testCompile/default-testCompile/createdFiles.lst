@@ -1,1 +1,4 @@
 nz\alphaone\library\api\Common\AppConfigTest.class
+nz\alphaone\library\api\Authentication\AuthenticationServiceTest.class
+nz\alphaone\library\api\ProjectList\ProjectListServiceTest.class
+nz\alphaone\library\api\Util\EncryptionUtilTest.class
