@@ -14,7 +14,7 @@ package nz.alphaone.library.api.Entity;
  */
 public class CompiledDocument extends ProjectDocument {
     private String compiled_by;
-    private String compiled_date;
+    // private String compiled_date;
 
     public String getCompiledBy() {
         return compiled_by;
@@ -24,11 +24,25 @@ public class CompiledDocument extends ProjectDocument {
         this.compiled_by = compiled_by;
     }
 
-    public String getCompiledDate() {
-        return compiled_date;
+    @Override
+    public String toString() {
+        return "CompiledDocument{" +
+                "document_type='" + getDocumentType() + '\'' +
+                "document_category='" + getDocumentCategory() + '\'' +
+                "document_name='" + getDocumentName() + '\'' +
+                "received_date='" + getReceivedDate() + '\'' +
+                "file_guid='" + getFileGuid() + '\'' +
+                "url='" + getUrl() + '\'' +
+                "file_name='" + getFileName() + '\'' +
+                "compiled_by='" + compiled_by + '\'' +
+                '}';
     }
 
-    public void setCompiledDate(String compiled_date) {
-        this.compiled_date = compiled_date;
-    }
+    //    public String getCompiledDate() {
+//        return compiled_date;
+//    }
+//
+//    public void setCompiledDate(String compiled_date) {
+//        this.compiled_date = compiled_date;
+//    }
 }

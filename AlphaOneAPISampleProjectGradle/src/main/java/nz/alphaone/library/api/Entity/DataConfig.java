@@ -28,4 +28,11 @@ public class DataConfig {
     public void setUseCompiledPdf(String use_compiled_pdf) {
         config.put("use_compiled_pdf", use_compiled_pdf);
     }
+
+    @Override
+    public String toString() {
+        return "DataConfig{" +
+                "config=" + config +
+                '}';
+    }
 }

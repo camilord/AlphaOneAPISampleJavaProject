@@ -130,4 +130,23 @@ public class ConsentData {
     public void setBuildingType(String building_type) {
         this.building_type = building_type;
     }
+
+    @Override
+    public String toString() {
+        return "ConsentData{" +
+                "application_type='" + application_type + '\'' +
+                ", building_complexity='" + building_complexity + '\'' +
+                ", site_address='" + site_address + '\'' +
+                ", legal_description='" + legal_description + '\'' +
+                ", parcel_id='" + parcel_id + '\'' +
+                ", property_id='" + property_id + '\'' +
+                ", owner_contact_id='" + owner_contact_id + '\'' +
+                ", agent_contact_id='" + agent_contact_id + '\'' +
+                ", estimated_value='" + estimated_value + '\'' +
+                ", intended_life='" + intended_life + '\'' +
+                ", consent_type='" + consent_type + '\'' +
+                ", work_category='" + work_category + '\'' +
+                ", building_type='" + building_type + '\'' +
+                '}';
+    }
 }

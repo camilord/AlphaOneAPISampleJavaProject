@@ -21,6 +21,18 @@ public class InspectionReport {
     private String inspected_by;
     private String inspection_result;
 
+    public String[] getSchema() {
+        return new String[] {
+            "building_id",
+            "building_name",
+            "inspection_id",
+            "inspection_type",
+            "inspected_date",
+            "inspected_by",
+            "inspection_result"
+        };
+    }
+
     public String getBuildingId() {
         return building_id;
     }
@@ -75,5 +87,18 @@ public class InspectionReport {
 
     public void setInspectionResult(String inspection_result) {
         this.inspection_result = inspection_result;
+    }
+
+    @Override
+    public String toString() {
+        return "InspectionReport{" +
+                "building_id='" + building_id + '\'' +
+                ", building_name='" + building_name + '\'' +
+                ", inspection_id='" + inspection_id + '\'' +
+                ", inspection_type='" + inspection_type + '\'' +
+                ", inspected_date='" + inspected_date + '\'' +
+                ", inspected_by='" + inspected_by + '\'' +
+                ", inspection_result='" + inspection_result + '\'' +
+                '}';
     }
 }

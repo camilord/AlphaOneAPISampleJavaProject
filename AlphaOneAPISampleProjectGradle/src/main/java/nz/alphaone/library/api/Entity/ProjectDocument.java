@@ -21,43 +21,43 @@ public class ProjectDocument {
     private String url;
     private String file_name;
 
-    public String getDocument_type() {
+    public String getDocumentType() {
         return document_type;
     }
 
-    public void setDocument_type(String document_type) {
+    public void setDocumentType(String document_type) {
         this.document_type = document_type;
     }
 
-    public String getDocument_category() {
+    public String getDocumentCategory() {
         return document_category;
     }
 
-    public void setDocument_category(String document_category) {
+    public void setDocumentCategory(String document_category) {
         this.document_category = document_category;
     }
 
-    public String getDocument_name() {
+    public String getDocumentName() {
         return document_name;
     }
 
-    public void setDocument_name(String document_name) {
+    public void setDocumentName(String document_name) {
         this.document_name = document_name;
     }
 
-    public String getReceived_date() {
+    public String getReceivedDate() {
         return received_date;
     }
 
-    public void setReceived_date(String received_date) {
+    public void setReceivedDate(String received_date) {
         this.received_date = received_date;
     }
 
-    public String getFile_guid() {
+    public String getFileGuid() {
         return file_guid;
     }
 
-    public void setFile_guid(String file_guid) {
+    public void setFileGuid(String file_guid) {
         this.file_guid = file_guid;
     }
 
@@ -69,11 +69,24 @@ public class ProjectDocument {
         this.url = url;
     }
 
-    public String getFile_name() {
+    public String getFileName() {
         return file_name;
     }
 
-    public void setFile_name(String file_name) {
+    public void setFileName(String file_name) {
         this.file_name = file_name;
+    }
+
+    @Override
+    public String toString() {
+        return "ProjectDocument{" +
+                "document_type='" + document_type + '\'' +
+                ", document_category='" + document_category + '\'' +
+                ", document_name='" + document_name + '\'' +
+                ", received_date='" + received_date + '\'' +
+                ", file_guid='" + file_guid + '\'' +
+                ", url='" + url + '\'' +
+                ", file_name='" + file_name + '\'' +
+                '}';
     }
 }

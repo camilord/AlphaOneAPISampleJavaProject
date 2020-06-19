@@ -18,6 +18,9 @@ import java.util.ArrayList;
  */
 public class ProjectDetailsResponse
 {
+    private boolean result;
+    private String message;
+
     private String submission_guid;
     private String submission_ref;
     private String submission_title;
@@ -35,19 +38,20 @@ public class ProjectDetailsResponse
     private ArrayList<ProjectDocument> consent_files;
     private ArrayList<CompiledDocument> compiled_files;
 
-    /**
-     * @return String[]
-     */
-    public String[] getStringSchema() {
-        return new String[] {
-            "submission_guid",
-            "submission_ref",
-            "submission_title",
-            "description_of_work",
-            "ta_name",
-            "ta_consent_id",
-            "consent_id"
-        };
+    public boolean getResult() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getSubmissionGuid() {
@@ -168,5 +172,28 @@ public class ProjectDetailsResponse
 
     public void setCompiledFiles(ArrayList<CompiledDocument> compiled_files) {
         this.compiled_files = compiled_files;
+    }
+
+    @Override
+    public String toString() {
+        return "ProjectDetailsResponse{" +
+                "result=" + result +
+                ", message='" + message + '\'' +
+                ", submission_guid='" + submission_guid + '\'' +
+                ", submission_ref='" + submission_ref + '\'' +
+                ", submission_title='" + submission_title + '\'' +
+                ", description_of_work='" + description_of_work + '\'' +
+                ", ta_name='" + ta_name + '\'' +
+                ", ta_consent_id='" + ta_consent_id + '\'' +
+                ", consent_id='" + consent_id + '\'' +
+                ", config=" + config +
+                ", consent_data=" + consent_data +
+                ", submission_statuses=" + submission_statuses +
+                ", inspections=" + inspections +
+                ", submission_files=" + submission_files +
+                ", ccc_files=" + ccc_files +
+                ", consent_files=" + consent_files +
+                ", compiled_files=" + compiled_files +
+                '}';
     }
 }

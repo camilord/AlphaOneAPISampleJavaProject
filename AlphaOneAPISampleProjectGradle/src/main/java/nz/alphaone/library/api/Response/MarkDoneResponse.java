@@ -1,8 +1,5 @@
 package nz.alphaone.library.api.Response;
 
-import java.math.BigInteger;
-import java.sql.Time;
-
 /**
  * AlphaOneAPISampleProjectGradle
  * Copyright 2020
@@ -34,7 +31,7 @@ public class MarkDoneResponse
         ResponseID = response_id;
     }
 
-    public boolean isResult() {
+    public boolean getResult() {
         return Result;
     }
 

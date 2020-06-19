@@ -14,10 +14,10 @@ package nz.alphaone.library.api.Authentication;
  */
 public class Authorization
 {
-    private static String ApiBaseUrl;
-    private static String username;
-    private static String session_key;
-    private static boolean IsAuthorized;
+    private String ApiBaseUrl;
+    private String username;
+    private String session_key;
+    private boolean IsAuthorized;
 
     public Authorization(String url, String usrname, String sessionkey, boolean is_auth) {
         ApiBaseUrl = url;
@@ -26,19 +26,35 @@ public class Authorization
         IsAuthorized = is_auth;
     }
 
+    public String getApiBaseUrl() {
+        return ApiBaseUrl;
+    }
+
+    public void setApiBaseUrl(String apiBaseUrl) {
+        ApiBaseUrl = apiBaseUrl;
+    }
+
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSessionKey() {
         return session_key;
     }
 
-    public String getApiBaseUrl() {
-        return ApiBaseUrl;
+    public void setSessionKey(String session_key) {
+        this.session_key = session_key;
     }
 
     public boolean isAuthorized() {
         return IsAuthorized;
+    }
+
+    public void setAuthorized(boolean authorized) {
+        IsAuthorized = authorized;
     }
 }

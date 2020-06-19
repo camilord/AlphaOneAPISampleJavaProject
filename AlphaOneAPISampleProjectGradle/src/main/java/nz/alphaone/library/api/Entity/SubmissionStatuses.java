@@ -18,6 +18,32 @@ public class SubmissionStatuses
 {
     private final HashMap<String, String> submission_status = new HashMap<>();
 
+    /**
+     * @return String[]
+     */
+    public String[] getStringSchema() {
+        return new String[] {
+                "accepted_date",
+                "accepted_by",
+                "granted_date",
+                "granted_by",
+                "issued_date",
+                "issued_by",
+                "cancelled_date",
+                "cancelled_by",
+                "rejected_date",
+                "rejected_by",
+                "withdrawn_date",
+                "withdrawn_by",
+                "lapsed_date",
+                "lapsed_by"
+        };
+    }
+
+    public void setData(String item_name, String item_value) {
+        submission_status.put(item_name, item_value);
+    }
+
     public String getAcceptedDate() {
         return submission_status.get("accepted_date");
     }
@@ -144,5 +170,16 @@ public class SubmissionStatuses
 
     public void setLapsedBy(String lapsed_by) {
         submission_status.put("lapsed_by", lapsed_by);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder print = new StringBuilder("SubmissionStatuses{");
+        for(String item : getStringSchema()) {
+            print.append(item).append("='").append(submission_status.get(item)).append("',");
+        }
+        print.append("}\n");
+
+        return print.toString();
     }
 }
